@@ -28,54 +28,12 @@ This project focuses on:
 
 ### 1. **Encapsulation**
 All class fields are marked as `private` and accessed/modified via **getter** and **setter** methods.
-# Eg: 
-private String itemName;
-public String getItemName() {
-    return itemName;
-}
-public void setItemName(String itemName) {
-    this.itemName = itemName;
-}
 
 ### 2. **Inheritance**
-# Eg:
-public class User {
-    protected String name;
-    protected String email;
-}
-public class Customer extends User {
-    private String deliveryAddress;
-    // Inherits 'name' and 'email' from User
-}
+Inheritance allows one class to reuse the fields and methods of another class. This promotes code reusability and helps build relationships between general and specific classes.
 
 ### 3. **Abstraction**
-# Eg:
-public class FoodItem {
-    private String name;
-    private double price;
-    public FoodItem(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-    public String getName() {
-        return name;
-    }
-    public double getPrice() {
-        return price;
-    }
-}
+Core details of the food items (like name and price) are hidden using private fields, and accessed through public getter and setter methods. This ensures that only necessary information is exposed to other classes, improving code clarity and safety.
 
 ### 4. **Polymorphism**
-# Eg:
-FoodItem item1 = new DiscountedFoodItem("Burger", 5.99, 1.00); 
-public class DiscountedFoodItem extends FoodItem {
-    private double discount;
-    public DiscountedFoodItem(String name, double price, double discount) {
-        super(name, price);
-        this.discount = discount;
-    }
-    @Override
-    public double getPrice() {
-        return super.getPrice() - discount;
-    }
-}
+Polymorphism allows the use of a FoodItem reference to point to different types of food items, such as regular or discounted items. When calling methods like getPrice(), Java dynamically selects the appropriate method based on the actual object type, enabling flexible and scalable design.
